@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/app.jsx',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
@@ -9,7 +9,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
@@ -22,4 +22,4 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'public')
   }
-}
+};
