@@ -2,58 +2,62 @@
 -Create repo directory
 -npm init
 
-#create app and dist folders
--app files: index.html, index.js, index.css
--dist files: none
+#create src and public folders
+-src files: app.js
+-public files: index.html
 
 #install react
 -npm install react react-dom
 
 #install dev dependencies
-npm install --save-dev @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli webpack-dev-server babel-loader css-loader style-loader html-webpack-plugin
+npm install --save-dev @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli webpack-dev-server babel-loader css-loader style-loader
 
 #create webpack.config.js
 touch webpack.config.js
 
 #add webpack config
-var path = require('path');
-var HtmlWebpackPlugin =  require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
-    entry : './app/index.js',
-    output : {
-        path : path.resolve(__dirname , 'dist'),
-        filename: 'index_bundle.js'
-    },
-    module : {
-        rules : [
-            {test : /\.(js)$/, use:'babel-loader'},
-            {test : /\.css$/, use:['style-loader', 'css-loader']}
-        ]
-    },
-    mode:'development',
-    plugins : [
-        new HtmlWebpackPlugin ({
-            template : 'app/index.html'
-        })
+  entry: './src/app.js',
+  output: {
+    path: path.join(__dirname, 'public'),
+    filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
     ]
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'public')
+  }
+}
 
-};
+#create .babelrc
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
 
 #install additional dependencies
--npm i -D nodemon
--npm i -D eslint
--npm i express
--npm i body-parser
--npm i sequelize
--npm i mysql2
+-npm i -D nodemon eslint
+-npm i express body-parser sequelize mysql2
 
 #install testing dependencies
--npm i -D jest
--npm i -D enzyme enzyme-adapter-react-16
+-npm i -D jest enzyme enzyme-adapter-react-16
 
 #add scripts to package.json
 - "test": "NEED TEST SCRIPT"
-- "react-dev": "webpack -d --watch",
+- "start": "webpack --mode=development",
+- "build": "webpack --mode=production",
+- "react-dev": "webpack-dev-server --open"
 - "server-dev": "nodemon server/index.js"
 - "db-seed": "node db_seed.js"

@@ -4,13 +4,13 @@ import './styles/styles.css';
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
   }
 
   render() {
     return (
       <h1>test</h1>
-    )
+    );
   }
 }
 
