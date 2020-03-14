@@ -6,16 +6,16 @@ const db = new Sequelize('gallery', 'root', 'root', {
 });
 
 const Photos = db.define('photos', {
-  url0: Sequelize.text,
-  url1: Sequelize.text,
-  url2: Sequelize.text,
-  url3: Sequelize.text,
-  url4: Sequelize.text,
-  url5: Sequelize.text,
-  url6: Sequelize.text,
-  url7: Sequelize.text,
-  url8: Sequelize.text,
-  url9: Sequelize.text,
+  url0: Sequelize.TEXT,
+  url1: Sequelize.TEXT,
+  url2: Sequelize.TEXT,
+  url3: Sequelize.TEXT,
+  url4: Sequelize.TEXT,
+  url5: Sequelize.TEXT,
+  url6: Sequelize.TEXT,
+  url7: Sequelize.TEXT,
+  url8: Sequelize.TEXT,
+  url9: Sequelize.TEXT,
 });
 
 //to test the connection
