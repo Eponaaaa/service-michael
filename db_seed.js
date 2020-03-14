@@ -14,15 +14,32 @@ const imgFileNames = fs.readdirSync(IMG_PATH, (err, files) => {
   }
 });
 
-//create a test to make sure this generates a number that corresponds to the amount of images available in the array (0 through array.length-1)
-const getRandomNumber = (max) => {
-  return Math.floor(Math.random() * max);
+const getRandomNumber = (min, max) => {
+  return Math.floor(Math.random() * (max - min) + min);
 };
 
-//create 100 records with a loop
-for (let i = 1; i <= imgFileNames.length; i++) {
-  console.log(`${i}: ${BASE_URL}${imgFileNames[i-1]}`);
+const createRandomPhotoUrls = (images) => {
+  //pick random number of photos to use between 1-10
+  const numberOfPhotos = getRandomNumber(1, 10);
+  const activeImages = [];
+
+  //pick random photo out of the array to fill
+  for (let i = 0; i <= numberOfPhotos; i++) {
+    activeImages.push(images[getRandomNumber(0, images.length)]);
+  }
+
+  db.sync()
+    .then(() => {
+      activeImages.forEach((img, i) => {
+        let key = `url${i}`;
+        photos.create({
+          [key]: img
+        });
+      });
+    });
+};
+
+//create 100 records
+for (let i = 0; i < 100; i++) {
+  createRandomPhotoUrls(imgFileNames);
 }
-//use index to assign each records id, starting at 1
-  // randomly assign up to 10 image urls in each
-    //append base url with img name
