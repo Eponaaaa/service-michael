@@ -1,4 +1,4 @@
-const {Sequelize} = require ('sequelize');
+const Sequelize = require ('sequelize');
 
 const db = new Sequelize('gallery', 'root', 'root', {
   host: 'localhost',
@@ -18,10 +18,11 @@ const Photos = db.define('photos', {
   url9: Sequelize.TEXT,
 });
 
+db.sync();
+
 //to test the connection
 db.authenticate()
   .then(() => console.log('Database Connected'))
   .catch(() => console.log('Error connecting to database'));
 
-module.exports.db = db;
-module.exports.photos = Photos;
+module.exports = db;
