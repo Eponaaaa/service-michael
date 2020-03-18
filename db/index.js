@@ -26,3 +26,4 @@ db.authenticate()
   .catch(() => console.log('Error connecting to database'));
 
 module.exports = db;
+module.exports.Photos = Photos;
