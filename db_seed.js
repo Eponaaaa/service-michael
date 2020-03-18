@@ -30,11 +30,17 @@ const createRandomPhotoUrls = (images) => {
 
   db.sync()
     .then(() => {
-      activeImages.forEach((img, i) => {
-        let key = `url${i}`;
-        photos.create({
-          [key]: img
-        });
+      db.Photos.create({
+        url0: activeImages[0],
+        url1: activeImages[1],
+        url2: activeImages[2],
+        url3: activeImages[3],
+        url4: activeImages[4],
+        url5: activeImages[5],
+        url6: activeImages[6],
+        url7: activeImages[7],
+        url8: activeImages[8],
+        url9: activeImages[9],
       });
     });
 };
