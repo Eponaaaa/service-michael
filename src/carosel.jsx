@@ -8,3 +8,21 @@ next/prev buttons are on far left & right side of image, vertically centered
   drop shadow slightly darkens on hover
 main image ~ 625px wide
 */
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './styles/styles.css';
+
+class Carosel extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <p>this is the carosel</p>
+    );
+  }
+}
+
+export default Carosel;
