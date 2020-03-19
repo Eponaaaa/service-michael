@@ -13,8 +13,14 @@ class App extends React.Component {
     this.BASE_URL = 'https://hrr44fec.s3.us-east-2.amazonaws.com/';
 
     this.state = {
-      currentImage: 'image-adamvalstar-Pkfckiu3RKc.jpg'
+      currentImage: 'image-adamvalstar-Pkfckiu3RKc.jpg',
+      imageSet: []
     };
+  }
+
+  componentDidMount() {
+    //query database for current id and load into state
+    this.setState({imageSet: ['image-adamvalstar-Pkfckiu3RKc.jpg', 'image-adamvalstar-Pkfckiu3RKc.jpg', 'image-adamvalstar-Pkfckiu3RKc.jpg', 'image-adamvalstar-Pkfckiu3RKc.jpg', 'image-adamvalstar-Pkfckiu3RKc.jpg']});
   }
 
   //fn to change state
@@ -23,7 +29,7 @@ class App extends React.Component {
     return (
       <div id="container">
 
-        <Thumbs BASE_URL = {this.BASE_URL}/>
+        <Thumbs BASE_URL = {this.BASE_URL} imageSet={this.state.imageSet}/>
         <Carosel BASE_URL = {this.BASE_URL} currentImage={this.state.currentImage}/>
 
       </div>
