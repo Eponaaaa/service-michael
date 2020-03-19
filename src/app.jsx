@@ -16,20 +16,24 @@ class App extends React.Component {
       currentImage: 'image-adamvalstar-Pkfckiu3RKc.jpg',
       imageSet: []
     };
+
+    this.setCurrentImage.bind(this);
   }
 
   componentDidMount() {
     //query database for current id and load into state
-    this.setState({imageSet: ['image-adamvalstar-Pkfckiu3RKc.jpg', 'image-adamvalstar-Pkfckiu3RKc.jpg', 'image-adamvalstar-Pkfckiu3RKc.jpg', 'image-adamvalstar-Pkfckiu3RKc.jpg', 'image-adamvalstar-Pkfckiu3RKc.jpg']});
+    this.setState({imageSet: ['image-adamvalstar-Pkfckiu3RKc.jpg', 'image-aleskrivec-QnNqGoCnBg0.jpg', 'image-adamvalstar-Pkfckiu3RKc.jpg', 'image-adamvalstar-Pkfckiu3RKc.jpg', 'image-aleskrivec-QnNqGoCnBg0.jpg']});
   }
 
-  //fn to change state
+  setCurrentImage(imgIndex) {
+    this.setState({currentImage: this.state.imageSet[imgIndex]});
+  }
 
   render() {
     return (
       <div id="carousel-container">
 
-        <Thumbs BASE_URL = {this.BASE_URL} imageSet={this.state.imageSet}/>
+        <Thumbs BASE_URL = {this.BASE_URL} imageSet={this.state.imageSet} setCurrentImage={(imgIndex) => this.setCurrentImage(imgIndex)}/>
         <Carousel BASE_URL = {this.BASE_URL} currentImage={this.state.currentImage}/>
 
       </div>
