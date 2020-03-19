@@ -13,18 +13,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/styles.css';
 
-class Carosel extends React.Component {
+class Carousel extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <div id="carosel">
+      <div id="carousel">
         <img src={this.props.BASE_URL + this.props.currentImage} alt="" />
       </div>
     );
   }
 }
 
-export default Carosel;
+export default Carousel;
