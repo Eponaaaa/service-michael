@@ -21,7 +21,7 @@ class Carosel extends React.Component {
   render() {
     return (
       <div id="carosel">
-        <img src={this.props.BASE_URL + `image-adamvalstar-Pkfckiu3RKc.jpg`} alt="" />
+        <img src={this.props.BASE_URL + this.props.currentImage} alt="" />
       </div>
     );
   }

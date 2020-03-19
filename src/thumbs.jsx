@@ -14,6 +14,10 @@ class Thumbs extends React.Component {
     super(props);
   }
 
+  functiontohandlemouseoverchangingmainimage() {
+    
+  }
+
   render() {
     return (
       <ul className = "thumbnails">
