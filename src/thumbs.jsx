@@ -14,8 +14,8 @@ class Thumbs extends React.Component {
     super(props);
   }
 
-  functiontohandlemouseoverchangingmainimage() {
-
+  functiontohandlemouseoverchangingmainimage(i) {
+    this.props.setCurrentImage(i);
   }
 
   render() {
@@ -24,7 +24,7 @@ class Thumbs extends React.Component {
         {
           this.props.imageSet.map((thumb, i) => {
             return (
-              <li key={i} ><img src={this.props.BASE_URL + thumb} alt={thumb} /></li>
+              <li key={i} onMouseOver={this.functiontohandlemouseoverchangingmainimage.bind(this, i)}><img src={this.props.BASE_URL + thumb} alt={thumb} /></li>
             );
           })
         }
