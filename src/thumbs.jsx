@@ -15,18 +15,19 @@ class Thumbs extends React.Component {
   }
 
   functiontohandlemouseoverchangingmainimage() {
-    
+
   }
 
   render() {
     return (
       <ul className = "thumbnails">
-        <li><img src={this.props.BASE_URL + `image-adamvalstar-Pkfckiu3RKc.jpg`} alt="" /></li>
-        <li><img src={this.props.BASE_URL + `image-adamvalstar-Pkfckiu3RKc.jpg`} alt="" /></li>
-        <li><img src={this.props.BASE_URL + `image-adamvalstar-Pkfckiu3RKc.jpg`} alt="" /></li>
-        <li><img src={this.props.BASE_URL + `image-adamvalstar-Pkfckiu3RKc.jpg`} alt="" /></li>
-        <li><img src={this.props.BASE_URL + `image-adamvalstar-Pkfckiu3RKc.jpg`} alt="" /></li>
-
+        {
+          this.props.imageSet.map((thumb, i) => {
+            return (
+              <li key={i} ><img src={this.props.BASE_URL + thumb} alt={thumb} /></li>
+            );
+          })
+        }
       </ul>
     );
   }
