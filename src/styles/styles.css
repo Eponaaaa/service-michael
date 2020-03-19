@@ -1,24 +1,41 @@
-ul.thumbnails, #carosel {
+#carousel-container * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#carousel-container ul.thumbnails, #carousel {
   float: left;
   margin-top: 16px;
 }
 
-#carosel img {
-  max-width: 625px;
+/* thumbs */
+#carousel-container ul.thumbnails {
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
-ul.thumbnails li {
+#carousel-container ul.thumbnails li {
   list-style-type: none;
   margin: 0 15px 5px 0;
   padding: 2px;
 }
 
-ul.thumbnails li img {
+#carousel-container ul.thumbnails li img {
   width: 56px;
   height: 56px;
   border-radius: 5px;
 }
 
-ul.thumbnails li img:hover {
+#carousel-container ul.thumbnails li img:hover {
   border: 2px solid black;
+}
+
+/* main image */
+#carousel-container #carousel {
+  position: relative;
+}
+
+#carousel-container #carousel img {
+  max-width: 625px;
 }

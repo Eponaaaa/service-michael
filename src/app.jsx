@@ -4,7 +4,7 @@ import './styles/styles.css';
 
 //import components
 import Thumbs from './Thumbs.jsx';
-import Carosel from './Carosel.jsx';
+import Carousel from './Carousel.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -27,10 +27,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id="container">
+      <div id="carousel-container">
 
         <Thumbs BASE_URL = {this.BASE_URL} imageSet={this.state.imageSet}/>
-        <Carosel BASE_URL = {this.BASE_URL} currentImage={this.state.currentImage}/>
+        <Carousel BASE_URL = {this.BASE_URL} currentImage={this.state.currentImage}/>
 
       </div>
     );
