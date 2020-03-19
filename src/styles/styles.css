@@ -17,25 +17,82 @@
 
 #carousel-container ul.thumbnails li {
   list-style-type: none;
-  margin: 0 15px 5px 0;
-  padding: 2px;
+  margin: 0 0 5px 0;
 }
 
 #carousel-container ul.thumbnails li img {
   width: 56px;
   height: 56px;
   border-radius: 5px;
+  border: 2px solid transparent;
+  filter: opacity(0.7);
 }
 
-#carousel-container ul.thumbnails li img:hover {
+#carousel-container ul.thumbnails li img:hover { /* change this to active, have react apply it via state change */
   border: 2px solid black;
+  filter: opacity(1);
 }
 
 /* main image */
 #carousel-container #carousel {
   position: relative;
+  max-width: 625px;
 }
 
 #carousel-container #carousel img {
-  max-width: 625px;
+  max-width: 100%;
+  padding: 0 50px;
+  border-radius: 6px;
+  margin: 0 auto;
+}
+
+#carousel-container #carousel .prev, #carousel-container #carousel .next {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  position: absolute;
+  top: 40%;
+  box-shadow: 0 4px 20px rgba(34, 34, 34, 0.15);
+  cursor: pointer;
+}
+
+
+#carousel-container #carousel .prev {
+  left: 5px;
+}
+
+#carousel-container #carousel .next {
+  right: 5px;
+  transform: rotate(180deg);
+}
+
+#carousel-container #carousel .prev:hover, #carousel-container #carousel .next:hover {
+  box-shadow: 0 4px 20px rgba(34, 34, 34, 0.30)
+}
+
+#carousel-container #carousel .prev:focus, #carousel-container #carousel .next:focus {
+  outline: none;
+  border: none;
+}
+
+.next svg, .prev svg {
+  width: 24px;
+  text-align: center;
+  margin: 0;
+}
+
+#heart-icon, #fav-heart-icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+#fav-heart-icon {
+  color: #C13C27;
+  fill: #C13C27;
+  z-index: 2;
+  display: none;
 }
