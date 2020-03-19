@@ -16,7 +16,14 @@ class Thumbs extends React.Component {
 
   render() {
     return (
-      <p>this is where the thumbs go</p>
+      <ul className = "thumbnails">
+        <li><img src={this.props.BASE_URL + `image-adamvalstar-Pkfckiu3RKc.jpg`} alt="" /></li>
+        <li><img src={this.props.BASE_URL + `image-adamvalstar-Pkfckiu3RKc.jpg`} alt="" /></li>
+        <li><img src={this.props.BASE_URL + `image-adamvalstar-Pkfckiu3RKc.jpg`} alt="" /></li>
+        <li><img src={this.props.BASE_URL + `image-adamvalstar-Pkfckiu3RKc.jpg`} alt="" /></li>
+        <li><img src={this.props.BASE_URL + `image-adamvalstar-Pkfckiu3RKc.jpg`} alt="" /></li>
+
+      </ul>
     );
   }
 }
