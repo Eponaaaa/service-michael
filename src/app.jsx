@@ -16,10 +16,6 @@ class App extends React.Component {
       currentImage: 'image-adamvalstar-Pkfckiu3RKc.jpg',
       imageSet: []
     };
-
-    // this.setCurrentImage.bind(this);
-    // this.nextImage.bind(this);
-    // this.prevImage.bind(this);
   }
 
   componentDidMount() {
@@ -31,33 +27,12 @@ class App extends React.Component {
     this.setState({currentImage: this.state.imageSet[imgIndex]});
   }
 
-  nextImage() {
-    console.log(this.state.imageSet.indexOf(this.state.currentImage));
-
-    this.currentImgIndex = this.state.imageSet.indexOf(this.state.currentImage);
-    //error handling
-    if (this.currentImgIndex === -1) {
-      this.setState({currentImage: this.state.imageSet[0]});
-      console.log('An Error occured getting the next image');
-    }
-
-    if (this.currentImgIndex === this.state.imageSet.length) {
-      this.setState({currentImage: this.state.imageSet[0]});
-    } else {
-      this.setState({currentImage: this.state.imageSet[this.currentImageIndex + 1]});
-    }
-  }
-
-  prevImage() {
-
-  }
-
   render() {
     return (
       <div id="carousel-container">
 
         <Thumbs BASE_URL = {this.BASE_URL} imageSet={this.state.imageSet} setCurrentImage={(imgIndex) => this.setCurrentImage(imgIndex)} />
-        <Carousel BASE_URL = {this.BASE_URL} currentImage={this.state.currentImage} next={this.nextImage.bind(this)}/>
+        <Carousel BASE_URL = {this.BASE_URL} currentImage={this.state.currentImage} images={this.state.imageSet} setCurrentImage={(imgIndex) => this.setCurrentImage(imgIndex)} />
 
       </div>
     );

@@ -6,7 +6,6 @@ thumbs are aligned vertically along left side of screen, non-responsive
 */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './styles/styles.css';
 
 class Thumbs extends React.Component {
@@ -14,7 +13,7 @@ class Thumbs extends React.Component {
     super(props);
   }
 
-  functiontohandlemouseoverchangingmainimage(i) {
+  handleThumbMouseOver(i) {
     this.props.setCurrentImage(i);
   }
 
@@ -24,7 +23,7 @@ class Thumbs extends React.Component {
         {
           this.props.imageSet.map((thumb, i) => {
             return (
-              <li key={i} onMouseOver={this.functiontohandlemouseoverchangingmainimage.bind(this, i)}><img src={this.props.BASE_URL + thumb} alt={thumb} /></li>
+              <li key={i} onMouseOver={this.handleThumbMouseOver.bind(this, i)}><img src={this.props.BASE_URL + thumb} alt={thumb} /></li>
             );
           })
         }
