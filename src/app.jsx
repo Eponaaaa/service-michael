@@ -20,6 +20,10 @@ class App extends React.Component {
 
   componentDidMount() {
     //query database for current id and load into state
+    const getRandomNumber = (min, max) => {
+      return Math.floor(Math.random() * (max - min) + min);
+    };
+    
     this.setState({imageSet: ['image-adamvalstar-Pkfckiu3RKc.jpg', 'image-aleskrivec-QnNqGoCnBg0.jpg', 'image-veerajayanth03-hJnNmgOOuI4.jpg']});
   }
 

@@ -96,7 +96,7 @@
   height: 24px;
   position: absolute;
   top: 5px;
-  right: 5px;
+  right: 15px;
 }
 
 #fav-heart-icon {
@@ -104,4 +104,12 @@
   fill: #C13C27;
   z-index: 2;
   display: none;
+}
+
+#expand {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 54px;
+  right: 15px;
 }
