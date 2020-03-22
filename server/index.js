@@ -17,7 +17,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/photos/:id', (req, res) => {
-  console.log('Request made');
   db.Photos.findAll({where: {id: req.params.id}})
     .then(item => {
       res.json(item);

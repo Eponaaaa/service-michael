@@ -13,24 +13,32 @@ class App extends React.Component {
     this.BASE_URL = 'https://hrr44fec.s3.us-east-2.amazonaws.com/';
 
     this.state = {
-      currentImage: 'image-adamvalstar-Pkfckiu3RKc.jpg',
+      currentImage: '',
       imageSet: []
     };
   }
 
   componentDidMount() {
-    //query database for current id and load into state
     const getRandomNumber = (min, max) => {
       return Math.floor(Math.random() * (max - min) + min);
     };
 
     fetch(`http://localhost:3000/photos/${getRandomNumber(0, 99)}`)
-      .then(data => console.log(data))
-      //.then(setstate imagest)
-      //.then(setCurrentImage(0))
+      .then(response => response.json())
+      .then(data => {
+        const result = [];
+        for (let key in data[0]) {
+          if (key.startsWith('url') && data[0][key]) {
+            result.push(data[0][key]);
+          }
+        }
+        return result;
+      })
+      .then(data => {
+        this.setState({imageSet: data, currentImage: data[0]});
+        return data[0];
+      })
       .catch(err => console.log(err));
-    
-    this.setState({imageSet: ['image-adamvalstar-Pkfckiu3RKc.jpg', 'image-aleskrivec-QnNqGoCnBg0.jpg', 'image-veerajayanth03-hJnNmgOOuI4.jpg']});
   }
 
   setCurrentImage(imgIndex) {
