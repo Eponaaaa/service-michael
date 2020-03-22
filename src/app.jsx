@@ -23,6 +23,12 @@ class App extends React.Component {
     const getRandomNumber = (min, max) => {
       return Math.floor(Math.random() * (max - min) + min);
     };
+
+    fetch(`http://localhost:3000/photos/${getRandomNumber(0, 99)}`)
+      .then(data => console.log(data))
+      //.then(setstate imagest)
+      //.then(setCurrentImage(0))
+      .catch(err => console.log(err));
     
     this.setState({imageSet: ['image-adamvalstar-Pkfckiu3RKc.jpg', 'image-aleskrivec-QnNqGoCnBg0.jpg', 'image-veerajayanth03-hJnNmgOOuI4.jpg']});
   }

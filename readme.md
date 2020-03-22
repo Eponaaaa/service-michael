@@ -49,7 +49,7 @@ module.exports = {
 
 #install additional dependencies
 -npm i -D nodemon eslint
--npm i express body-parser sequelize mysql2
+-npm i express body-parser sequelize mysql2 cors
 
 #install testing dependencies
 -npm i -D jest babel-jest @babel/polyfill enzyme enzyme-adapter-react-16
