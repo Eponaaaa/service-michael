@@ -2,8 +2,9 @@
 // https://jestjs.io/docs/en/configuration.html
 
 module.exports = {
-  // Automatically clear mock calls and instances between every test
+  // Automatically clear mock calls and instances between every test. Automock is required for jest-fetch-mock
   clearMocks: true,
+  automock: false,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'],
@@ -15,7 +16,7 @@ module.exports = {
   moduleFileExtensions: ['js', 'json', 'jsx'],
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ['<rootDir>/enzyme.config.js'],
+  setupFiles: ['<rootDir>/enzyme.config.js', '<rootDir>/setupJestFetchMock.js'],
 
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',
