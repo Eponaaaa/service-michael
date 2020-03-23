@@ -3,7 +3,7 @@
 -npm init
 
 #create src and public folders
--src files: app.js
+-src files: App.jsx
 -public files: index.html
 
 #install react
@@ -19,7 +19,7 @@ touch webpack.config.js
 const path = require('path');
 
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/App.jsx',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
@@ -27,7 +27,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
@@ -40,7 +40,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'public')
   }
-}
+};
 
 #create .babelrc
 {
@@ -88,10 +88,23 @@ module.exports = {
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
-  
+
   // Indicates whether each individual test should be reported during the run
   verbose: false,
+
+  //Configure jest to allow imports of static assets. Add to top level:
+  moduleNameMapper: {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+    "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
 };
+
+#add the mock folder files from above
+mocks/styleMock.js
+  module.exports = {};
+
+mocks/fileMock.js
+  module.exports = 'test-file-stub';
 
 #create enzyme.config.js in top level
 import { configure } from 'enzyme';
@@ -100,7 +113,7 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 #To create test files
-Create filetotest.test.js in same directory as filetotest.jsx
+Create filetotest.test.js
 
 #add scripts to package.json
 - "test": "jest",
