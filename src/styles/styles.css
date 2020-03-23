@@ -130,7 +130,7 @@
 }
 
 /* Lightbox */
-#carosel-lightbox {
+#carousel-lightbox {
   position: fixed;
   top: 0;
   left: 0;
@@ -141,7 +141,7 @@
   display: none;
 }
 
-#carousel-container #carosel-lightbox img {
+#carousel-container #carousel-lightbox img {
  max-width: 720px;
  margin-top: 50px;
  position: relative;
