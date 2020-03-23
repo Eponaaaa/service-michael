@@ -3,7 +3,7 @@
 -npm init
 
 #create src and public folders
--src files: App.jsx
+-src files: App.jsx, index.js
 -public files: index.html
 
 #install react
@@ -19,7 +19,7 @@ touch webpack.config.js
 const path = require('path');
 
 module.exports = {
-  entry: './src/App.jsx',
+  entry: './src/index.js',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
@@ -53,6 +53,8 @@ module.exports = {
 
 #install testing dependencies
 -npm i -D jest babel-jest @babel/polyfill enzyme enzyme-adapter-react-16
+  ##needed if using fetch api
+-npm i -D jest-fetch-mock
 
 #create jest.config.js at top level
 // For a detailed explanation regarding each configuration property, visit:

@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 import App from '../App';
 
 describe('Some Cool Name', () => {
-  it('should be 4', expect(2 + 2).toBe(4));
 
   test('App renders without crashing', () => {
     const div = document.createElement('div');
