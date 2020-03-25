@@ -50,7 +50,6 @@
 
 #carousel-container #carousel img {
   max-width: 100%;
-  padding: 0 50px;
   border-radius: 6px;
   margin: 0 auto;
 }
@@ -100,6 +99,11 @@
   outline: none;
   border: none;
   background: none;
+}
+
+#expand {
+  background-color: #FFFFFF;
+  border-radius: 50%;
 }
 
 #heart-icon svg, #fav-heart-icon svg, #expand svg {
