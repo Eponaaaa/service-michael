@@ -143,6 +143,7 @@
   background-color: rgba(0, 0, 0, .75);
   text-align: center;
   display: none;
+  z-index: 1000;
 }
 
 #carousel-container #carousel-lightbox img {
