@@ -9,8 +9,13 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
 app.use(cors());
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 app.get('/', (req, res) => {
   res.sendStatus(200);

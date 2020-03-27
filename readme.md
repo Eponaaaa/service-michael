@@ -1,3 +1,22 @@
+### Quick setup
+## Install dependencies
+npm -i
+
+## Setup the database
+npm run db-seed
+
+mySql is used with sequelize.
+The seed file creates a database named gallery, with one table named Photos.
+You may need to change the user/password for your database on line 3 of the db/index.js file.
+
+Note: this scans /images and populates the database with filenames from that directory.
+
+## Start the server
+npm run server-dev
+
+Default port is 3000.
+
+### Complete setup from scratch
 #Set up the repo
 -Create repo directory
 -npm init
