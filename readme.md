@@ -1,4 +1,4 @@
-### Quick setup
+# Quick setup
 ## Install dependencies
 npm -i
 
@@ -16,25 +16,26 @@ npm run server-dev
 
 Default port is 3000.
 
-### Complete setup from scratch
-#Set up the repo
+# Complete setup from scratch
+### Set up the repo
 -Create repo directory
 -npm init
 
-#create src and public folders
--src files: App.jsx, index.js
--public files: index.html
+### create src and public folders
+src/App.jsx
+src/index.js
+public/index.html
 
-#install react
--npm install react react-dom
+### install react
+npm install react react-dom
 
-#install dev dependencies
-npm install --save-dev @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli webpack-dev-server babel-loader css-loader style-loader
+### install dev dependencies
+npm install -D @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli webpack-dev-server babel-loader css-loader style-loader
 
-#create webpack.config.js
-touch webpack.config.js
+### create webpack.config.js
+webpack.config.js
 
-#add webpack config
+#### add webpack config
 const path = require('path');
 
 module.exports = {
@@ -61,21 +62,21 @@ module.exports = {
   }
 };
 
-#create .babelrc
+### create .babelrc
 {
   "presets": ["@babel/preset-env", "@babel/preset-react"]
 }
 
-#install additional dependencies
+### install additional dependencies
 -npm i -D nodemon eslint
 -npm i express body-parser sequelize mysql2 cors
 
-#install testing dependencies
+### install testing dependencies
 -npm i -D jest babel-jest @babel/polyfill enzyme enzyme-adapter-react-16
   ##needed if using fetch api
 -npm i -D jest-fetch-mock
 
-#create jest.config.js at top level
+#### create jest.config.js at top level
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
@@ -121,26 +122,26 @@ module.exports = {
   }
 };
 
-#add the mock folder files from above
+#### add the mock folder files from above
 mocks/styleMock.js
   module.exports = {};
 
 mocks/fileMock.js
   module.exports = 'test-file-stub';
 
-#create jest-fetch-mock config if using (file already imported in jest config)
+#### create jest-fetch-mock config if using (file already imported in jest config)
 require('jest-fetch-mock').enableMocks()
 
-#create enzyme.config.js in top level
+#### create enzyme.config.js in top level
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-#To create test files
+### To create test files
 Create filetotest.test.js
 
-#add scripts to package.json
+### add scripts to package.json
 - "test": "jest",
 - "test-watch": "jest --watch",
 - "test-coverage": "jest --coverage --colors",
