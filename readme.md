@@ -1,3 +1,6 @@
+# About
+This service is one module of a e-commerce page, with team members building the other modules. It is an image carousel created with React, Express, and MySQL.
+
 # Quick setup
 ## Install dependencies
 ```
