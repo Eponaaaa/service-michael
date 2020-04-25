@@ -1,9 +1,13 @@
 # Quick setup
 ## Install dependencies
+```
 npm -i
+```
 
 ## Setup the database
+```
 npm run db-seed
+```
 
 mySql is used with sequelize.
 The seed file creates a database named gallery, with one table named Photos.
@@ -12,14 +16,18 @@ You may need to change the user/password for your database on line 3 of the db/i
 Note: this scans /images and populates the database with filenames from that directory.
 
 ## Start the server
+```
 npm run server-dev
+```
 
 Default port is 3000.
 
 # Complete setup from scratch
 ### Set up the repo
 -Create repo directory
--npm init
+```
+npm init
+```
 
 ### create src and public folders
 src/App.jsx
@@ -27,15 +35,20 @@ src/index.js
 public/index.html
 
 ### install react
+```
 npm install react react-dom
+```
 
 ### install dev dependencies
+```
 npm install -D @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli webpack-dev-server babel-loader css-loader style-loader
+```
 
 ### create webpack.config.js
 webpack.config.js
 
 #### add webpack config
+```
 const path = require('path');
 
 module.exports = {
@@ -61,25 +74,34 @@ module.exports = {
     contentBase: path.join(__dirname, 'public')
   }
 };
+```
 
 ### create .babelrc
+```
 {
   "presets": ["@babel/preset-env", "@babel/preset-react"]
 }
+```
 
 ### install additional dependencies
--npm i -D nodemon eslint
--npm i express body-parser sequelize mysql2 cors
+```
+npm i -D nodemon eslint
+npm i express body-parser sequelize mysql2 cors
+```
 
 ### install testing dependencies
--npm i -D jest babel-jest @babel/polyfill enzyme enzyme-adapter-react-16
+```
+npm i -D jest babel-jest @babel/polyfill enzyme enzyme-adapter-react-16
+```
   ##needed if using fetch api
--npm i -D jest-fetch-mock
+```
+npm i -D jest-fetch-mock
+```
 
 #### create jest.config.js at top level
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
-
+```
 module.exports = {
   // Automatically clear mock calls and instances between every test. Automock is required for jest-fetch-mock
   clearMocks: true,
@@ -121,22 +143,31 @@ module.exports = {
     "\\.(gif|ttf|eot|svg|jpg|jpeg)$": "<rootDir>/mocks/fileMock.js"
   }
 };
+```
 
 #### add the mock folder files from above
 mocks/styleMock.js
+```
   module.exports = {};
+```
 
 mocks/fileMock.js
+```
   module.exports = 'test-file-stub';
+```
 
 #### create jest-fetch-mock config if using (file already imported in jest config)
+```
 require('jest-fetch-mock').enableMocks()
+```
 
 #### create enzyme.config.js in top level
+```
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
+```
 
 ### To create test files
 Create filetotest.test.js
